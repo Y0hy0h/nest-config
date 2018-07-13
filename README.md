@@ -15,3 +15,6 @@ Do you have a nice way of injecting the config into the app? For more informatio
 you can read issues [#863](https://github.com/nestjs/nest/issues/863) and 
 [#530](https://github.com/nestjs/nest/issues/530) (additionally 
 [#671](https://github.com/nestjs/nest/issues/671)).
+
+## Run the app
+You need to launch a MongoDB. Then you can `yarn start:dev`.
