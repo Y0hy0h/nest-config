@@ -1,4 +1,4 @@
-import { Module } from "@nestjs/common";
+import { forwardRef, Module } from "@nestjs/common";
 import { AppController } from "./app.controller";
 import { AppService } from "./app.service";
 import { ConfigModule } from "./config.module";
@@ -8,10 +8,12 @@ import { defaultConfig } from "./config";
 @Module({
   imports: [
     ConfigModule,
-    TypeOrmModule.forRoot(
-      // TODO: Replace this with value from ConfigModule's provider.
-      (global as any).config.typeOrm || defaultConfig.typeOrm
-    )
+    forwardRef(() => {
+      TypeOrmModule.forRoot(
+        // TODO: How to access ConfigModule provider here?
+        (global as any).config.typeOrm || defaultConfig.typeOrm
+      )
+    }),
   ],
   controllers: [AppController],
   providers: [AppService]
