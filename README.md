@@ -1,38 +1,17 @@
 # nest-config
 
-## Description
+How to inject a configuration into a Nest app?
 
-description
+The config interface is defined in `config.module.ts`. When I have a customized
+config `myConfig`, I want to inject it into the app when I call `bootstrap()`
+from `main.ts`.
 
-## Installation
+Currently, there is a lot of bad stuff happening with `global`s and duplication,
+instead of everything getting the config from `ConfigModule`'s provider. See
+`app.module.ts` for a `// TODO` comment marking the line that is the primary
+culprit.
 
-```bash
-$ npm install
-```
-
-## Running the app
-
-```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-npm run start:prod
-```
-
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
+Do you have a nice way of injecting the config into the app? For more information,
+you can read issues [#863](https://github.com/nestjs/nest/issues/863) and 
+[#530](https://github.com/nestjs/nest/issues/530) (additionally 
+[#671](https://github.com/nestjs/nest/issues/671)).
